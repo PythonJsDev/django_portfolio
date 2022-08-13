@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% load static%}
+
+{% block content%}
+
+<div class="row justify-content-center pt-4">
+    {% autoescape off %}
+    <h1 class="text-center pb-4">{{title}}</h1>
+    <div class="col-6 border border-white border-4">
+           {% for project in projects %}
+                <div class="col my-2 border border-white border-1">
+                    <h2 class="ms-2"> {{ project.name }} </h2>
+                    <p class="ms-2"> {{ project.short_description }} </p>
+                    
+                    {% with keywords=project.keywords_list %}
+                    {% if  keywords %}
+                            <p class="ms-2" ><B> Mots clés :</B>  {{ keywords }} </p>
+                    {% endif %}
+                    <div class="d-flex justify-content-end" >
+                         <a class="btn btn-outline-dark me-2 mb-2" href="{{project.get_absolute_url}}">Détails du projet</a>
+                         <a class="btn btn-outline-dark me-2 mb-2" href="{% url 'home' %}">Retour</a>
+                    </div>
+                    {% endwith %}
+                </div> 
+            {% endfor %}
+           
+    </div> 
+    {% endautoescape %}
+</div>
+
+{% endblock %}
