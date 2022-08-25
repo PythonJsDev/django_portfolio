@@ -23,11 +23,12 @@
             </p>
             <p class="alinea"> Il présente également des projets personnels, développés pour
                 pratiquer les notions étudiées, ou en découvrir de nouvelles.</p>
-
+            
             <div class="d-flex justify-content-end" >
-                <a class="btn btn-outline-dark me-2 my-2" href="{% url 'web' %}">Applications Web</a>
-                <a class="btn btn-outline-dark me-2 my-2" href="{% url 'other' %}">Autres Applications</a>
+                <a class="btn btn-outline-dark me-2 my-2" href="{% url 'apps' category='web' %}">Applications Web</a>
+                <a class="btn btn-outline-dark me-2 my-2" href="{% url 'apps' category='other' %}">Autres Applications</a>
            </div>
+           
         </div>
         
         

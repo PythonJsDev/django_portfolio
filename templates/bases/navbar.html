@@ -1,26 +1,26 @@
 {% load static %}
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-    <!-- <img src="{% static 'images/logo_vide.png'%}" height="50" width = "50" class="ms-5"/> -->
+    <a href="{% url 'home'%}">
+      <img src="{% static 'images/logo_pjsdev_fb.png'%}" height="50" width = "50" class="ms-5"/>
+    </a>
     <div class='col-2'>
       <a class="ms-2 text-decoration-none link-dark" href="{% url 'home'%}">Portfolio</a> 
-      <!-- <span class='ms-2'>Portfolio</span> -->
     </div>
 
   
-  <div class="collapse navbar-collapse" id="navbarNav">
-    
+    <div class="collapse navbar-collapse" id="navbarNav"> 
     <ul class="navbar-nav ms-auto me-5">
       
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'web' %}">Applications web</a>
+        <a class="nav-link" href="{% url 'apps' category='web' %}">Applications web</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'other' %}">Autres Applications</a>
+        <a class="nav-link" href="{% url 'apps' category='other' %}">Autres Applications</a>
       </li>
-      
+    
     </ul>
+    
   </div>
 </nav>
 <!-- navbar -->

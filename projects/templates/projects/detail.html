@@ -18,11 +18,11 @@
                   
                   <div class="d-flex justify-content-end" >
                      {% if project.url_github_oc %} 
-                            <a class="btn btn-outline-dark me-1 mb-1" href= "{{ project.url_github_oc }}">Voir le code</a>
+                            <a class="btn btn-outline-dark me-1 mb-1 col-2" href= "{{ project.url_github_oc }}">Voir le code</a>
                      {% else %}
-                            <a class="btn btn-outline-dark me-1 mb-1" href= "{{ project.url_github_portfolio }}">Voir le code</a>
+                            <a class="btn btn-outline-dark me-1 mb-1 col-2" href= "{{ project.url_github_portfolio }}">Voir le code</a>
                      {% endif %}
-                     <a class="btn btn-outline-dark mx-3 mb-1" onclick="history.back()">Retour</a>
+                     <a class="btn btn-outline-dark mx-3 mb-1 col-2" onclick="history.back()">Retour</a>
                 
                   </div>
                   {% endwith %}
