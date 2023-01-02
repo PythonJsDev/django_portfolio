@@ -2,40 +2,42 @@
 {% load static%}
 {% block content%}
 
-
 <div class="row justify-content-center pt-4">
-       <div class="col-6 border border-white border-4">
-              
+       <div class="col-6">
               <div class="row d-inline-flex p-2">
-                  {% autoescape off %}
-                  <h1> {{ project.name }} </h1>
-                  <h4> {{sub_title}} </h4>
-                  <p> {{ project.description }} </p>
-                  {% with keywords=project.keywords_list %}
-                  {% if  keywords %}
-                        <p class="mt-2"><B> Mots clés :</B> {{ keywords }} </p>
-                  {% endif %}
-                  
-                  <div class="d-flex justify-content-end" >
-                     {% if project.url_github_oc %} 
-                            <a class="btn btn-outline-dark me-1 mb-1 col-2" href= "{{ project.url_github_oc }}">Voir le code</a>
-                     {% else %}
-                            <a class="btn btn-outline-dark me-1 mb-1 col-2" href= "{{ project.url_github_portfolio }}">Voir le code</a>
-                     {% endif %}
-                     <a class="btn btn-outline-dark mx-3 mb-1 col-2" onclick="history.back()">Retour</a>
-                
-                  </div>
-                  {% endwith %}
-                  {% endautoescape %}
-              </div>
-              
-       </div> 
-       {% if project.thumbnail %}
-              <div class="text-center pt-4"><img src='{{project.thumbnail.url}}' alt=""/></div>
-       {% endif %}
-  
-       
-</div>
+                     {% autoescape off %}
+                     <div class="card mb-2 mt-2 col">
+                            <div class="card-body">
+                                   <h1 class="card-title"> {{ project.name }} </h1>
+                                   <h4> {{sub_title}} </h4>
+                                   <p> {{ project.description }} </p>
+                                   {% with keywords=project.keywords_list %}
+                                          {% if keywords %}
+                                                 <p class="mt-2"><B> Mots clés :</B> {{ keywords }} </p>
+                                          {% endif %}
 
+                                   <div class="d-flex justify-content-end">
+                                          {% if project.url_github_oc %}
+                                          <a class="btn btn-outline-dark me-1 mb-1 col-2"
+                                                 href="{{ project.url_github_oc }}">Voir le code</a>
+                                          {% else %}
+                                          <a class="btn btn-outline-dark me-1 mb-1 col-2"
+                                                 href="{{ project.url_github_portfolio }}">Voir le code</a>
+                                          {% endif %}
+                                          <a class="btn btn-outline-dark mx-3 mb-1 col-2"
+                                                 onclick="history.back()">Retour</a>
+                                   </div>
+                                   {% endwith %}
+                            </div>
+                     {% endautoescape %}
+                     </div>
+
+              </div>
+              {% if project.thumbnail %}
+                     <div class="text-center pt-4"><img src='{{project.thumbnail.url}}' alt="" /></div>
+              {% endif %}
+
+
+</div>
 
 {% endblock %}

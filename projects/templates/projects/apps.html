@@ -5,38 +5,34 @@
 
 <div class="row justify-content-center pt-4">
     {% autoescape off %}
-    <h1 class="text-center pb-4">{{title}}</h1>
-    <div class="col-6 border border-white border-4">
+    <h1 class="text-center pb-4 text-warning">{{title}}</h1>
+    <div class="col-6">
         {% for framework_language,projects_list in projects.items %}
-            {% if projects_list %}
-            <div class="col my-2 border border-white border-1">
-             <h2 class="ms-2">{{ framework_language | upper }}</h2>
-            <ul>
-                {% for project in projects_list %}
-                    <li class="ms-2">{{ project }}</li>
-                {% endfor %}
-            </ul>
-        
-            <div class="d-flex justify-content-end" >
-                {%if category == 'web'%}
-                    <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'projects' framework_language%}">{{ framework_language|capfirst }}</a>
-                
-                {%else%}
-                    <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'others-projects' framework_language%}">{{ framework_language|capfirst }}</a>
-                {%endif%}
-                
-                <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'home' %}">Retour</a>
-                
+        {% if projects_list %}
+        <div class="card mb-2 mt-2 col">
+            <div class="card-body">
+                <h2 class="card-title">{{ framework_language | upper }}</h2>
+                <ul class="card-text">
+                    {% for project in projects_list %}
+                        <li class="ms-2">{{ project }}</li>
+                    {% endfor %}
+                </ul>
+                <div class=" d-flex justify-content-end">
+                    {%if category == 'web'%}
+                        <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'projects' framework_language%}">{{ framework_language|capfirst }}</a>
+
+                    {%else%}
+                        <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'others-projects' framework_language%}">{{ framework_language|capfirst }}</a>
+                    {%endif%}
+
+                    <a class="btn btn-outline-dark me-2 mb-2 col-2" href="{% url 'home' %}">Retour</a>
+                </div>
             </div>
-        </div> 
-            {% endif %}
-           
-    
+        </div>
+
+        {% endif %}
         {% endfor %}
-      
-           
-    </div> 
+    </div>
     {% endautoescape %}
 </div>
-
 {% endblock %}
